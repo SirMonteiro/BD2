@@ -44,4 +44,4 @@ docker compose up -d
 - **[Ezequiel]()**
 - **[André Vieira Rocha](https://github.com/AndreRochaV)**
 - **[Gabriel Monteiro de Souza](https://github.com/SirMonteiro)**
-- **[Otavio]()**
+- **[Otavio](https://github.com/bambans)**
