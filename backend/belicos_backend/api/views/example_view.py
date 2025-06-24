@@ -6,7 +6,9 @@ from api.permissions import IsStaffOrAdmin, IsAdmin
 from django.contrib.auth.hashers import make_password
 
 class ExampleView(ViewSet):
-    permission_classes = [IsAdmin]
+    # permission_classes = [IsAdmin]
+    # or
+    # permission_classes = [AllowAny]  # Allow access to unauthenticated users
 
     # GET /conflitos
     def list(self, request):

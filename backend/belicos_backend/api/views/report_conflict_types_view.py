@@ -4,7 +4,7 @@ from api.utils import RawSQLHelper
 from api.permissions import IsStaffOrAdmin, IsAdmin
 
 class ConflictTypeHistogramView(ViewSet):
-    permission_classes = [IsAdmin]
+    # permission_classes = [IsAdmin]
 
     def list(self, request):
         query = """
