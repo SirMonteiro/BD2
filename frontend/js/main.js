@@ -1,3 +1,6 @@
+import Chart from 'https://cdn.jsdelivr.net/npm/chart.js';
+import Anotation from 'https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation';
+
 document.addEventListener('DOMContentLoaded', () => {
     const conflitoForm = document.getElementById('conflitoForm');
     const btnGrafico = document.getElementById('btnGraficoTipo');
