@@ -6,9 +6,10 @@ services:
     environment:
       - DATABASE_URL=postgres://belicosUser:Belicos@Senha007@db:5432/belicosDB
     ports:
-      - "8001:8000" # Backend exposed on port 8000
+      - 8000:8000 # Backend exposed on port 8000
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     image: postgres:alpine
@@ -19,7 +20,14 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
     ports:
-      - "5433:5432"
+      - 5432:5432
+    healthcheck:
+      test:
+        ["CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 3s
 
   # frontend:
   #   build:
