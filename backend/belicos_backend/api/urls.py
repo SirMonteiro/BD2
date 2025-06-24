@@ -11,19 +11,19 @@ router.register(r'example', ExampleView, basename='example')
 router.register(r'login', LoginView, basename='login')
 
 # Cadastro de entidades
-# router.register(r'military-groups', MilitaryGroupView, basename='military-groups')
-# router.register(r'military-divisions', MilitaryDivisionView, basename='military-divisions')
-# router.register(r'military-leaders', MilitaryLeaderView, basename='military-leaders')
-# router.register(r'political-leaders', PoliticalLeaderView, basename='political-leaders')
-# router.register(r'conflicts', ConflictView, basename='conflicts')
+router.register(r'conflitos', ConflitoView, basename='conflito')
+router.register(r'grupos', GrupoView, basename='grupo')
+router.register(r'divisoes', DivisaoView, basename='divisao')
+router.register(r'chefe-militar', ChefeMilitarView, basename='chefe-militar')
+router.register(r'lider-politico', LiderPoliticoView, basename='lider-politico')
 
 # Relatórios
-router.register(r'reports/conflict-types-histogram', ConflictTypeHistogramView, basename='report-conflict-types')
-# router.register(r'reports/arms-dealers-barrett-m200', ArmsDealersSpecificWeaponsView, basename='report-arms-dealers')
-# router.register(r'reports/top-deadly-conflicts', TopDeadlyConflictsView, basename='report-deadliest')
-# router.register(r'reports/top-mediating-orgs', TopMediatingOrgsView, basename='report-mediators')
-# router.register(r'reports/top-armed-groups', TopArmedGroupsView, basename='report-armed-groups')
-# router.register(r'reports/top-religious-country', TopReligiousConflictCountryView, basename='report-religious')
+router.register(r'estatisticas/tipo-conflito', EstatisticasTipoConflitoView, basename='estatisticas-tipo-conflito')
+router.register(r'estatisticas/arma-traficante', EstatisticasArmaTraficanteView, basename='estatisticas-arma-traficante')
+router.register(r'estatisticas/top-conflitos-mortos', EstatisticasTopConflitosMortosView, basename='estatisticas-top-conflitos-mortos')
+router.register(r'estatisticas/top-organizacoes', EstatisticasTopOrganizacoesView, basename='estatisticas-top-organizacoes')
+router.register(r'estatisticas/top-grupos-armas', EstatisticasTopGruposArmasView, basename='estatisticas-top-grupos-armas')
+router.register(r'estatisticas/pais-religiosos', EstatisticasPaisReligiososView, basename='estatisticas-pais-religiosos')
 
 urlpatterns = [
     path('', include(router.urls)),
