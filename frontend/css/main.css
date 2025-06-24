@@ -2,6 +2,35 @@ body {
     background-color: #f8f9fa;
 }
 
-h1, h2 {
+h1 {
     color: #343a40;
+    text-align: center;
+}
+
+h2 {
+    color: #343a40;
+}
+
+#cadastro, #estatisticas, #listagens {
+    padding: 20px;
+}
+
+#graficoTipoConflito {
+    max-width: 100%;
+    height: auto;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+#tabelasListagens {
+    margin-top: 20px;
+}
+
+.tab-content {
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
