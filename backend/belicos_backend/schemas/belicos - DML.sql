@@ -291,66 +291,66 @@ INSERT INTO participacao_saida (codigo_conflito, codigo_grupo, data_saida) VALUE
 -- Adicionado a coluna numero_divisao para FK em chefe_militar e testar sequencialidade
 -- E mais dados para top grupos por armas fornecidas.
 -- ========================================
-INSERT INTO divisao (codigo, codigo_grupo, numero_divisao, nr_avioes, nr_tanques, nr_barcos, nr_membros, nr_baixas) VALUES
+INSERT INTO divisao (codigo_grupo, numero_divisao, nr_avioes, nr_tanques, nr_barcos, nr_membros, nr_baixas) VALUES
 -- Seus dados
-(1, 1, 1, 120, 150, 25, 15000, 8500),
-(2, 1, 2, 85, 200, 15, 18000, 9200),
-(3, 1, 3, 95, 180, 20, 16500, 7300),
-(4, 2, 1, 45, 85, 5, 25000, 18000),
-(5, 2, 2, 25, 120, 8, 22000, 15000),
-(6, 2, 3, 35, 95, 3, 20000, 12000),
-(7, 3, 1, 180, 220, 12, 12000, 4500),
-(8, 3, 2, 150, 185, 8, 11000, 4000),
-(9, 4, 1, 0, 15, 0, 8000, 6500),
-(10, 4, 2, 0, 25, 0, 9500, 5500),
-(11, 5, 1, 85, 450, 2, 35000, 42000),
-(12, 5, 2, 65, 380, 1, 32000, 43000),
-(13, 6, 1, 250, 850, 45, 45000, 18000),
-(14, 6, 2, 180, 650, 35, 38000, 17000),
-(15, 7, 1, 45, 180, 8, 28000, 15000),
-(16, 7, 2, 35, 150, 5, 25000, 13000),
-(17, 8, 1, 125, 85, 15, 18000, 8500),
-(18, 8, 2, 95, 65, 12, 15000, 6500),
-(19, 9, 1, 5, 45, 2, 25000, 12000),
-(20, 9, 2, 3, 35, 1, 22000, 10000),
-(21, 10, 1, 0, 25, 0, 15000, 9500),
-(22, 10, 2, 0, 18, 0, 12000, 8500),
-(23, 11, 1, 35, 85, 5, 18000, 4500),
-(24, 11, 2, 25, 65, 3, 15000, 4000),
-(25, 12, 1, 65, 45, 8, 5500, 250),
-(26, 12, 2, 45, 35, 5, 4500, 200),
-(27, 13, 1, 45, 25, 12, 8500, 350),
-(28, 13, 2, 35, 18, 8, 7500, 300),
-(29, 14, 1, 85, 45, 25, 9500, 155),
-(30, 14, 2, 65, 35, 18, 8500, 100),
-(31, 15, 1, 185, 450, 15, 65000, 18500),
-(32, 15, 2, 165, 385, 12, 58000, 16500),
-(33, 16, 1, 125, 285, 8, 45000, 15000),
-(34, 16, 2, 95, 225, 5, 38000, 13000),
-(35, 17, 1, 65, 185, 2, 35000, 28000),
-(36, 17, 2, 45, 155, 1, 32000, 27000),
-(37, 18, 1, 45, 125, 0, 28000, 13500),
-(38, 18, 2, 35, 95, 0, 25000, 11500),
-(39, 19, 1, 25, 85, 3, 45000, 38000),
-(40, 19, 2, 18, 65, 2, 42000, 37000),
-(41, 20, 1, 35, 65, 0, 25000, 6500),
-(42, 20, 2, 25, 45, 0, 22000, 5500),
-(43, 21, 1, 185, 485, 25, 55000, 48000),
-(44, 21, 2, 165, 425, 18, 52000, 47000),
-(45, 22, 1, 125, 385, 12, 48000, 23000),
-(46, 22, 2, 95, 325, 8, 45000, 22000),
-(47, 23, 1, 165, 285, 15, 45000, 19000),
-(48, 23, 2, 145, 245, 12, 42000, 19000),
-(49, 24, 1, 85, 185, 5, 85000, 95000),
-(50, 24, 2, 65, 155, 3, 82000, 90000),
-(51, 25, 1, 15, 35, 2, 12000, 4500),
-(52, 25, 2, 12, 28, 1, 11000, 4000),
+(1, 1, 120, 150, 25, 15000, 8500),
+(1, 2, 85, 200, 15, 18000, 9200),
+(1, 3, 95, 180, 20, 16500, 7300),
+(2, 1, 45, 85, 5, 25000, 18000),
+(2, 2, 25, 120, 8, 22000, 15000),
+(2, 3, 35, 95, 3, 20000, 12000),
+(3, 1, 180, 220, 12, 12000, 4500),
+(3, 2, 150, 185, 8, 11000, 4000),
+(4, 1, 0, 15, 0, 8000, 6500),
+(4, 2, 0, 25, 0, 9500, 5500),
+(5, 1, 85, 450, 2, 35000, 42000),
+(5, 2, 65, 380, 1, 32000, 43000),
+(6, 1, 250, 850, 45, 45000, 18000),
+(6, 2, 180, 650, 35, 38000, 17000),
+(7, 1, 45, 180, 8, 28000, 15000),
+(7, 2, 35, 150, 5, 25000, 13000),
+(8, 1, 125, 85, 15, 18000, 8500),
+(8, 2, 95, 65, 12, 15000, 6500),
+(9, 1, 5, 45, 2, 25000, 12000),
+(9, 2, 3, 35, 1, 22000, 10000),
+(10, 1, 0, 25, 0, 15000, 9500),
+(10, 2, 0, 18, 0, 12000, 8500),
+(11, 1, 35, 85, 5, 18000, 4500),
+(11, 2, 25, 65, 3, 15000, 4000),
+(12, 1, 65, 45, 8, 5500, 250),
+(12, 2, 45, 35, 5, 4500, 200),
+(13, 1, 45, 25, 12, 8500, 350),
+(13, 2, 35, 18, 8, 7500, 300),
+(14, 1, 85, 45, 25, 9500, 155),
+(14, 2, 65, 35, 18, 8500, 100),
+(15, 1, 185, 450, 15, 65000, 18500),
+(15, 2, 165, 385, 12, 58000, 16500),
+(16, 1, 125, 285, 8, 45000, 15000),
+(16, 2, 95, 225, 5, 38000, 13000),
+(17, 1, 65, 185, 2, 35000, 28000),
+(17, 2, 45, 155, 1, 32000, 27000),
+(18, 1, 45, 125, 0, 28000, 13500),
+(18, 2, 35, 95, 0, 25000, 11500),
+(19, 1, 25, 85, 3, 45000, 38000),
+(19, 2, 18, 65, 2, 42000, 37000),
+(20, 1, 35, 65, 0, 25000, 6500),
+(20, 2, 25, 45, 0, 22000, 5500),
+(21, 1, 185, 485, 25, 55000, 48000),
+(21, 2, 165, 425, 18, 52000, 47000),
+(22, 1, 125, 385, 12, 48000, 23000),
+(22, 2, 95, 325, 8, 45000, 22000),
+(23, 1, 165, 285, 15, 45000, 19000),
+(23, 2, 145, 245, 12, 42000, 19000),
+(24, 1, 85, 185, 5, 85000, 95000),
+(24, 2, 65, 155, 3, 82000, 90000),
+(25, 1, 15, 35, 2, 12000, 4500),
+(25, 2, 12, 28, 1, 11000, 4000),
 -- Novas Divisões para novos grupos
-(53, 26, 1, 20, 30, 0, 8000, 3000), -- Frente Nacional de Libertação Síria
-(54, 26, 2, 15, 25, 0, 7000, 2500),
-(55, 27, 1, 0, 50, 0, 25000, 10000), -- Talibã Afegão
-(56, 27, 2, 0, 40, 0, 22000, 8000),
-(57, 28, 1, 500, 1200, 80, 500000, 20000); -- Exército de Libertação Popular
+(26, 1, 20, 30, 0, 8000, 3000), -- Frente Nacional de Libertação Síria
+(26, 2, 15, 25, 0, 7000, 2500),
+(27, 1, 0, 50, 0, 25000, 10000), -- Talibã Afegão
+(27, 2, 0, 40, 0, 22000, 8000),
+(28, 1, 500, 1200, 80, 500000, 20000); -- Exército de Libertação Popular
 
 -- Atualizando soma_baixas nos grupos armados (este update deve ser executado *após* a inserção das divisões,
 -- e idealmente seria um trigger, como já visto no arquivo de triggers)
@@ -402,7 +402,7 @@ INSERT INTO lider (codigo_grupo, nome_lider, apoios) VALUES
 -- POPULANDO CHEFE_MILITAR
 -- Usando o campo 'codigo' para a PK serial
 -- ========================================
-INSERT INTO chefe_militar (codigo, faixa_hierarquica, nome_lider, codigo_lider, numero_divisao, grupo_divisao) VALUES
+INSERT INTO chefe_militar (codigo_chefe, faixa_hierarquica, nome_lider, codigo_lider, numero_divisao, grupo_divisao) VALUES
 -- Divisão 1 do Grupo 1 (3 chefes)
 (1, 'General', 'General Norman Schwarzkopf', 1, 1, 1),
 (2, 'Coronel', 'General Norman Schwarzkopf', 1, 1, 1), -- Assumindo que o nome do líder pode ser o mesmo, mas o chefe militar é diferente
@@ -471,29 +471,45 @@ INSERT INTO traficante (nome, sobrenome) VALUES
 -- POPULANDO TIPO_ARMA
 -- Adicionando as armas específicas "Barret M82" e "M200 Intervention"
 -- ========================================
-INSERT INTO tipo_arma (nome_modelo, calibre, tipo) VALUES
-('AK-47', '7.62x39mm', 'Rifle de Assalto'),
-('AR-15', '5.56x45mm', 'Rifle de Assalto'),
-('Barret M82', '.50 BMG', 'Rifle Sniper'),
-('M200 Intervention', '.408 CheyTac', 'Rifle Sniper'),
-('RPG-7', '40mm', 'Lançador de Foguetes'),
-('Glock 17', '9mm', 'Pistola'),
-('M16', '5.56x45mm', 'Rifle de Assalto'),
-('FN FAL', '7.62x51mm', 'Rifle de Batalha'),
-('MP5', '9mm', 'Submetralhadora'),
-('P-90', '5.7x28mm', 'Submetralhadora'),
-('FIM-92 Stinger', '70mm', 'Míssil Anti-Aéreo'),
-('Javelin', '127mm', 'Míssil Anti-Tanque'),
-('Granada de Mão M67', 'N/A', 'Explosivo'),
-('Mina Terrestre PMN-2', 'N/A', 'Mina Antipessoal'),
-('Drone Shahed-136', 'N/A', 'Drone suicida');
+INSERT INTO tipo_arma (nome_modelo, capacidade_destrutiva) VALUES
+('AK-47', 6.5), -- Capacidade destrutiva arbitrária
+('AR-15', 5.8),
+('Glock 17', 2.1),
+('RPG-7', 7.5),
+('FIM-92 Stinger', 9.2),
+('T-72', 9.8),
+('Javelin', 9.5),
+('Barret M82', 8.0),
+('M200 intervention', 8.5),
+('M4 Carbine', 5.5),
+('FN SCAR', 6.0),
+('Desert Eagle', 2.5),
+('MP5', 3.0),
+('M2 Browning', 7.0),
+('SVD Dragunov', 7.2),
+('AT-4', 6.8),
+('C4 Explosivo', 10.0),
+('M1 Abrams', 9.9),
+('Leopard 2', 9.7),
+('M16', 5.7),
+('FN FAL', 6.2),
+('P-90', 3.5),
+('F-16 Fighting Falcon', 9.0),
+('MiG-29 Fulcrum', 8.8),
+('Tornado IDS', 8.6),
+('Boeing AH-64 Apache', 9.1),
+('Eurofighter Typhoon', 9.3),
+('Granada de Mão M67', 4.0),
+('Mina Terrestre PMN-2', 7.0),
+('Drone Shahed-136', 6.0),
+('M200 Intervention', 8.5);
 
 
 -- ========================================
 -- POPULANDO ARMAS_ESTOQUE
 -- Populando estoque inicial para alguns traficantes
 -- ========================================
-INSERT INTO armas_estoque (codigo_traficante, modelo_arma, quantidade) VALUES
+INSERT INTO armas_estoque (codigo_traficante, modelo_arma, qtd_estoque) VALUES
 (1, 'AK-47', 1500),
 (1, 'Barret M82', 50),
 (1, 'RPG-7', 200),
@@ -514,64 +530,48 @@ INSERT INTO armas_estoque (codigo_traficante, modelo_arma, quantidade) VALUES
 -- Foco nas armas "Barret M82" e "M200 Intervention"
 -- E dados diversos para Top 5 Grupos por armas fornecidas
 -- ========================================
-INSERT INTO historico_venda_armas (codigo_traficante, modelo_arma, codigo_grupo_armado, quantidade, data_venda) VALUES
+INSERT INTO historico_venda_armas (codigo_traficante, modelo_arma, codigo_grupo_armado, qtd_vendida) VALUES
 -- Vendas para testar armas específicas (Barret M82, M200 Intervention)
-(1, 'Barret M82', 1, 5, '2023-01-10'), -- EUA
-(1, 'Barret M82', 7, 3, '2023-01-15'), -- Ucrânia
-(4, 'M200 Intervention', 5, 2, '2023-02-01'), -- Síria
-(4, 'M200 Intervention', 17, 1, '2023-02-05'), -- Sudão
+(1, 'Barret M82', 1, 5), -- EUA
+(1, 'Barret M82', 7, 3), -- Ucrânia
+(4, 'M200 Intervention', 5, 2), -- Síria
+(4, 'M200 Intervention', 17, 1), -- Sudão
+(2, 'AR-15', 1, 50),
+(3, 'M16', 5, 80),
+(5, 'AK-47', 9, 120),
+(5, 'RPG-7', 9, 30),
+(1, 'AK-47', 2, 200),
+(3, 'MP5', 10, 70),
+(4, 'FN FAL', 11, 60),
+(5, 'AK-47', 21, 150),
+(1, 'RPG-7', 24, 40),
+(2, 'Glock 17', 25, 25),
+(6, 'P-90', 26, 30),
+(7, 'FIM-92 Stinger', 7, 2),
+(8, 'Javelin', 7, 1),
+(1, 'AK-47', 13, 75),
+(2, 'AR-15', 14, 40),
+(3, 'M16', 15, 90),
+(5, 'AK-47', 16, 110),
+(1, 'Barret M82', 6, 7),
+(4, 'M200 Intervention', 27, 4),
+(10, 'Granada de Mão M67', 19, 500),
+(9, 'Mina Terrestre PMN-2', 20, 300),
+(8, 'Drone Shahed-136', 7, 10);
 
--- Vendas diversas para Top 5 Grupos por Armas Fornecidas (quantidade total)
-(1, 'AK-47', 2, 100, '2022-05-20'), -- Iraque
-(2, 'AR-15', 1, 50, '2022-06-01'), -- EUA
-(3, 'M16', 5, 80, '2022-07-10'), -- Síria
-(5, 'AK-47', 9, 120, '2022-08-01'), -- Houthis (Yemen)
-(5, 'RPG-7', 9, 30, '2022-08-05'),
-(1, 'AK-47', 2, 200, '2023-03-01'), -- Iraque (mais armas)
-(3, 'MP5', 10, 70, '2023-04-10'), -- Al-Shabaab (Somália)
-(4, 'FN FAL', 11, 60, '2023-05-01'), -- Líbia
-(5, 'AK-47', 21, 150, '2023-06-01'), -- Irã
-(1, 'RPG-7', 24, 40, '2023-06-15'), -- Vietnam
-(2, 'Glock 17', 25, 25, '2023-07-01'), -- Venezuela
-(6, 'P-90', 26, 30, '2023-07-10'), -- Frente Nacional de Libertação Síria
-(7, 'FIM-92 Stinger', 7, 2, '2023-08-01'), -- Ucrânia
-(8, 'Javelin', 7, 1, '2023-08-05'), -- Ucrânia
-(1, 'AK-47', 13, 75, '2023-09-01'), -- Argentina
-(2, 'AR-15', 14, 40, '2023-09-10'), -- Reino Unido
-(3, 'M16', 15, 90, '2023-10-01'), -- Índia
-(5, 'AK-47', 16, 110, '2023-10-05'), -- Paquistão
-(1, 'Barret M82', 6, 7, '2023-11-01'), -- Rússia
-(4, 'M200 Intervention', 27, 4, '2023-11-15'), -- Talibã Afegão
-(10, 'Granada de Mão M67', 19, 500, '2024-01-01'), -- Congo
-(9, 'Mina Terrestre PMN-2', 20, 300, '2024-01-05'), -- Nigéria
-(8, 'Drone Shahed-136', 7, 10, '2024-02-01'); -- Ucrânia
-
--- ========================================
+- ========================================
 -- POPULANDO DIALOGA
+-- IMPORTANTE: Apenas tuplas para líderes que existem na tabela 'lider'
+--             (com seus respectivos 'codigo_grupo') foram incluídas para evitar erros de FK.
 -- ========================================
-INSERT INTO dialoga (nome_lider, codigo_org) VALUES
-('General Norman Schwarzkopf', 1), -- EUA - ONU
-('General Norman Schwarzkopf', 3), -- EUA - NATO
-('General Qasim Suleimani', 8), -- Iraque - Liga Árabe
-('Yasser Arafat', 1), -- Palestina - ONU
-('Yasser Arafat', 8), -- Palestina - Liga Árabe
-('General Valerii Zaluzhnyi', 1), -- Ucrânia - ONU
-('General Valerii Zaluzhnyi', 3), -- Ucrânia - NATO
-('Abdul-Malik al-Houthi', 8), -- Houthis - Liga Árabe
-('Ahmed Abdi Godane', 7), -- Al-Shabaab - União Africana
-('General Khalifa Haftar', 8), -- Líbia - Liga Árabe
-('General François Lecointre', 1), -- França - ONU
-('General Mario Menéndez', 1), -- Argentina - ONU
-('Admiral Sandy Woodward', 1), -- Reino Unido - ONU
-('General Bipin Rawat', 1), -- Índia - ONU
-('General Qamar Javed Bajwa', 1), -- Paquistão - ONU
-('General Abdel Fattah al-Burhan', 7), -- Sudão - União Africana
-('General Gabriel Amisi', 1), -- Congo - ONU
-('General Lucky Irabor', 7), -- Nigéria - União Africana
-('General Hossein Salami', 1), -- Irã - ONU
-('Marechal Ri Pyong-chol', 1), -- Coreia do Norte - ONU
-('General Park Han-ki', 1), -- Coreia do Sul - ONU
-('General Vo Nguyen Giap', 1), -- Vietnã - ONU
-('General Vladimir Padrino', 1), -- Venezuela - ONU
-('Abu Mohammed al-Julani', 1), -- Frente Nacional de Libertação Síria - ONU
-('Mullah Hibatullah Akhundzada', 1); -- Talibã - ONU
+INSERT INTO dialoga ("nomeL", "codigoG", "codigoOrg") VALUES
+-- Dados baseados nos líderes presentes no DML da tabela 'lider'
+('General Benny Gantz', 3, 1),        -- Corrigido: 'Benjamin Gantz' -> 'General Benny Gantz'
+('General Maher al-Assad', 5, 1),     -- Corrigido: 'Sergei Shoigu' -> 'General Maher al-Assad' (Líder do Grupo 5)
+('General Hossein Salami', 21, 8),    -- Corrigido: codigoG de 6 para 21
+('General Qasim Suleimani', 2, 1),    -- Corrigido: 'Mahmoud Abbas' -> 'General Qasim Suleimani' (Líder do Grupo 2)
+('General Qasim Suleimani', 2, 8),    -- Corrigido: 'Mahmoud Abbas' -> 'General Qasim Suleimani' (Líder do Grupo 2)
+('General Valerii Zaluzhnyi', 7, 1),  -- Corrigido: 'Valerii Zaluzhnyi' -> 'General Valerii Zaluzhnyi'
+('General Valerii Zaluzhnyi', 7, 3),  -- Corrigido: 'Valerii Zaluzhnyi' -> 'General Valerii Zaluzhnyi'
+('Yasser Arafat', 4, 1),              -- Corrigido: 'Lloyd Austin' -> 'Yasser Arafat' (Líder do Grupo 4)
+('Príncipe Mohammed bin Salman', 8, 7);-- Corrigido: 'Ayman al-Zawahiri' -> 'Príncipe Mohammed bin Salman' (Líder do Grupo 8)
