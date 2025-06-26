@@ -53,11 +53,10 @@ INSERT INTO pais (codigo, nome) VALUES
 (37, 'Azerbaijão'),
 (38, 'Filipinas'),
 (39, 'Indonésia'),
-(40, 'Nigéria'); -- Repetição para teste
+(40, 'Ruanda');
 
 -- ========================================
 -- POPULANDO TABELA CONFLITO
--- Adicionado mais diversidade para testar Top 5 Mortos e Histograma de Tipos
 -- ========================================
 INSERT INTO conflito (nome, tipo_conf, nr_feridos, nr_mortos) VALUES
 ('Guerra do Golfo', 'Territorial', 150000, 45000),
@@ -80,7 +79,6 @@ INSERT INTO conflito (nome, tipo_conf, nr_feridos, nr_mortos) VALUES
 ('Conflito das Coreias', 'Territorial', 450000, 250000),
 ('Guerra do Vietnã', 'Territorial', 1200000, 850000),
 ('Conflito na Venezuela', 'Economicos', 85000, 35000),
--- Adicionando mais conflitos para Top 5 e Histograma
 ('Crise de Darfur', 'Raciais', 200000, 150000),
 ('Conflito em Nagorno-Karabakh', 'Territorial', 8000, 4000),
 ('Guerra do Tigray', 'Religioso', 300000, 180000),
@@ -94,9 +92,48 @@ INSERT INTO conflito (nome, tipo_conf, nr_feridos, nr_mortos) VALUES
 -- POPULANDO PAISES_AFETADOS
 -- ========================================
 INSERT INTO paises_afetados (codigo_pais, codigo_conflito) VALUES
--- Seus dados
-(11, 1), (2, 1), (22, 1), (8, 2), (9, 2), (10, 3), (20, 3), (12, 3), (11, 4), (2, 4), (6, 4), (13, 5), (2, 5), (14, 5), (3, 6), (16, 6), (23, 7), (22, 7), (27, 8), (26, 8), (24, 9), (21, 9), (30, 10), (5, 10), (6, 11), (34, 11), (15, 12), (14, 12), (25, 13), (26, 13), (26, 14), (27, 14), (28, 15), (29, 16), (12, 17), (11, 17), (17, 18), (18, 18), (2, 19), (31, 20), (32, 20),
--- Novos dados
+(11, 1),
+(2, 1),
+(22, 1),
+(8, 2),
+(9, 2),
+(10, 3),
+(20, 3),
+(12, 3),
+(11, 4),
+(2, 4),
+(6, 4),
+(13, 5),
+(2, 5),
+(14, 5),
+(3, 6),
+(16, 6),
+(23, 7),
+(22, 7),
+(27, 8),
+(26, 8),
+(24, 9),
+(21, 9),
+(30, 10),
+(5, 10),
+(6, 11),
+(34, 11),
+(15, 12),
+(14, 12),
+(25, 13),
+(26, 13),
+(26, 14),
+(27, 14),
+(28, 15),
+(40, 15),
+(29, 16),
+(12, 17),
+(11, 17),
+(17, 18),
+(18, 18),
+(2, 19),
+(31, 20),
+(32, 20),
 (25, 21), (26, 21), -- Crise de Darfur
 (36, 22), (37, 22), -- Nagorno-Karabakh
 (26, 23), (27, 23), -- Tigray
@@ -109,9 +146,32 @@ INSERT INTO paises_afetados (codigo_pais, codigo_conflito) VALUES
 -- POPULANDO REGIOES_AFETADAS
 -- ========================================
 INSERT INTO regioes_afetadas (codigo_conflito, regiao) VALUES
--- Seus dados
-(1, 'Oriente Médio'), (2, 'Cisjordânia'), (2, 'Faixa de Gaza'), (3, 'Alepo'), (3, 'Damasco'), (4, 'Bagdá'), (4, 'Basra'), (5, 'Cabul'), (5, 'Kandahar'), (6, 'Donbass'), (6, 'Crimeia'), (7, 'Saná'), (7, 'Aden'), (8, 'Mogadício'), (9, 'Trípoli'), (10, 'Timbuktu'), (11, 'Ilhas Malvinas'), (12, 'Vale da Caxemira'), (13, 'Darfur'), (14, 'Tigray'), (15, 'Kivu'), (16, 'Borno'), (17, 'Khuzistão'), (18, 'Zona Desmilitarizada'), (19, 'Mekong Delta'), (20, 'Caracas'),
--- Novos dados
+(1, 'Oriente Médio'),
+(2, 'Cisjordânia'),
+(2, 'Faixa de Gaza'),
+(3, 'Alepo'),
+(3, 'Damasco'),
+(4, 'Bagdá'),
+(4, 'Basra'),
+(5, 'Cabul'),
+(5, 'Kandahar'),
+(6, 'Donbass'),
+(6, 'Crimeia'),
+(7, 'Saná'),
+(7, 'Aden'),
+(8, 'Mogadício'),
+(9, 'Trípoli'),
+(10, 'Timbuktu'),
+(11, 'Ilhas Malvinas'),
+(12, 'Vale da Caxemira'),
+(13, 'Darfur'),
+(14, 'Tigray'),
+(15, 'Kivu'),
+(16, 'Borno'),
+(17, 'Khuzistão'),
+(18, 'Zona Desmilitarizada'),
+(19, 'Mekong Delta'),
+(20, 'Caracas'),
 (21, 'Darfur Central'),
 (22, 'Artsakh'),
 (23, 'Mekelle'),
@@ -124,9 +184,15 @@ INSERT INTO regioes_afetadas (codigo_conflito, regiao) VALUES
 -- POPULANDO RELIGIOES_AFETADAS
 -- ========================================
 INSERT INTO religioes_afetadas (codigo_conflito, religiao) VALUES
--- Seus dados
-(3, 'Islamismo'), (3, 'Cristianismo'), (7, 'Islamismo Sunita'), (7, 'Islamismo Xiita'), (10, 'Islamismo'), (16, 'Islamismo'), (16, 'Cristianismo'), (17, 'Islamismo Sunita'), (17, 'Islamismo Xiita'),
--- Novos dados
+(3, 'Islamismo'),
+(3, 'Cristianismo'),
+(7, 'Islamismo Sunita'),
+(7, 'Islamismo Xiita'),
+(10, 'Islamismo'),
+(16, 'Islamismo'),
+(16, 'Cristianismo'),
+(17, 'Islamismo Sunita'),
+(17, 'Islamismo Xiita'),
 (23, 'Cristianismo Ortodoxo'),
 (25, 'Islamismo Sunita'),
 (25, 'Cristianismo');
@@ -136,9 +202,14 @@ INSERT INTO religioes_afetadas (codigo_conflito, religiao) VALUES
 -- POPULANDO MATERIAS_PRIMAS_AFETADAS
 -- ========================================
 INSERT INTO materias_primas_afetadas (codigo_conflito, materia_prima) VALUES
--- Seus dados
-(1, 'Petróleo'), (4, 'Petróleo'), (6, 'Gás Natural'), (9, 'Petróleo'), (15, 'Diamantes'), (15, 'Coltan'), (17, 'Petróleo'), (20, 'Petróleo'),
--- Novos dados
+(1, 'Petróleo'),
+(4, 'Petróleo'),
+(6, 'Gás Natural'),
+(9, 'Petróleo'),
+(15, 'Diamantes'),
+(15, 'Coltan'),
+(17, 'Petróleo'),
+(20, 'Petróleo'),
 (22, 'Cobre'),
 (27, 'Carvão');
 
@@ -146,9 +217,16 @@ INSERT INTO materias_primas_afetadas (codigo_conflito, materia_prima) VALUES
 -- POPULANDO ETNIAS_AFETADAS
 -- ========================================
 INSERT INTO etnias_afetadas (codigo_conflito, etnia) VALUES
--- Seus dados
-(8, 'Somalis'), (8, 'Bantus'), (13, 'Árabes'), (13, 'Nubios'), (14, 'Tigray'), (14, 'Amhara'), (15, 'Hutus'), (15, 'Tutsis'), (16, 'Hauçás'), (16, 'Igbos'),
--- Novos dados
+(8, 'Somalis'),
+(8, 'Bantus'),
+(13, 'Árabes'),
+(13, 'Nubios'),
+(14, 'Tigray'),
+(14, 'Amhara'),
+(15, 'Hutus'),
+(15, 'Tutsis'),
+(16, 'Hauçás'),
+(16, 'Igbos'),
 (21, 'Fur'),
 (21, 'Zaghawa'),
 (23, 'Amhara'),
@@ -184,9 +262,42 @@ INSERT INTO organizacao (codigo, nome, tipo, tipo_ajuda, org_lider, nr_pessoas, 
 -- Adicionando mais dados para Top 5 organizações por mediações
 -- ========================================
 INSERT INTO mediacao_entrada (codigo_conflito, codigo_organizacao, data_incorporacao) VALUES
--- Seus dados
-(1, 1, '1991-01-15'), (1, 2, '1991-02-01'), (2, 1, '1948-05-15'), (2, 4, '1967-06-10'), (3, 1, '2011-03-15'), (3, 2, '2011-04-01'), (3, 4, '2011-05-15'), (4, 1, '2003-03-20'), (4, 2, '2003-04-01'), (5, 1, '2001-10-07'), (5, 3, '2001-10-07'), (6, 1, '2014-04-15'), (6, 3, '2014-04-20'), (7, 1, '2014-09-21'), (7, 8, '2015-03-26'), (8, 1, '1992-04-24'), (8, 7, '2007-01-01'), (9, 1, '2011-02-26'), (9, 8, '2011-03-15'), (10, 1, '2013-04-25'), (10, 7, '2013-01-11'), (11, 1, '1982-04-05'), (12, 1, '1949-01-01'), (13, 1, '2005-01-09'), (13, 7, '2004-07-15'), (14, 1, '2020-11-04'), (14, 7, '2020-12-01'), (15, 1, '1999-08-30'), (15, 7, '1998-07-17'), (16, 1, '2009-06-11'), (16, 7, '2012-04-01'), (17, 1, '1980-09-22'), (17, 8, '1982-05-15'), (18, 1, '1950-06-27'), (19, 1, '1964-08-07'), (20, 1, '2019-01-23'),
--- Novos dados
+(1, 1, '1991-01-15'),
+(1, 2, '1991-02-01'),
+(2, 1, '1948-05-15'),
+(2, 4, '1967-06-10'),
+(3, 1, '2011-03-15'),
+(3, 2, '2011-04-01'),
+(3, 4, '2011-05-15'),
+(4, 1, '2003-03-20'),
+(4, 2, '2003-04-01'),
+(5, 1, '2001-10-07'),
+(5, 3, '2001-10-07'),
+(6, 1, '2014-04-15'),
+(6, 3, '2014-04-20'),
+(7, 1, '2014-09-21'),
+(7, 8, '2015-03-26'),
+(8, 1, '1992-04-24'),
+(8, 7, '2007-01-01'),
+(9, 1, '2011-02-26'),
+(9, 8, '2011-03-15'),
+(10, 1, '2013-04-25'),
+(10, 7, '2013-01-11'),
+(11, 1, '1982-04-05'),
+(12, 1, '1949-01-01'),
+(13, 1, '2005-01-09'),
+(13, 7, '2004-07-15'),
+(14, 1, '2020-11-04'),
+(14, 7, '2020-12-01'),
+(15, 1, '1999-08-30'),
+(15, 7, '1998-07-17'),
+(16, 1, '2009-06-11'),
+(16, 7, '2012-04-01'),
+(17, 1, '1980-09-22'),
+(17, 8, '1982-05-15'),
+(18, 1, '1950-06-27'),
+(19, 1, '1964-08-07'),
+(20, 1, '2019-01-23'),
 (21, 7, '2004-09-01'),
 (21, 12, '2004-10-10'), -- Human Rights Watch na Crise de Darfur
 (22, 1, '1994-05-01'), -- Nagorno-Karabakh - ONU
@@ -210,9 +321,12 @@ INSERT INTO mediacao_entrada (codigo_conflito, codigo_organizacao, data_incorpor
 -- POPULANDO MEDIACAO_SAIDA
 -- ========================================
 INSERT INTO mediacao_saida (codigo_conflito, codigo_organizacao, data_saida) VALUES
--- Seus dados
-(1, 2, '1991-04-15'), (4, 2, '2011-12-18'), (11, 1, '1982-06-14'), (17, 8, '1988-08-20'), (19, 1, '1975-04-30'),
--- Novos dados
+
+(1, 2, '1991-04-15'),
+(4, 2, '2011-12-18'),
+(11, 1, '1982-06-14'),
+(17, 8, '1988-08-20'),
+(19, 1, '1975-04-30'),
 (22, 14, '1994-07-01'),
 (24, 4, '2020-01-01');
 
@@ -221,8 +335,8 @@ INSERT INTO mediacao_saida (codigo_conflito, codigo_organizacao, data_saida) VAL
 -- Mantidos seus dados. soma_baixas será atualizado pelo trigger.
 -- ========================================
 INSERT INTO grupo_armado (nome, soma_baixas) VALUES
-('Exército dos EUA', 0), -- 1
-('Forças Armadas Iraquianas', 0), -- 2
+('Forças Armadas dos Estados Unidos ', 0), -- 1
+('Forças Armadas do Iraque ', 0), -- 2
 ('Forças de Defesa de Israel', 0), -- 3
 ('Autoridade Nacional Palestina', 0), -- 4
 ('Exército Árabe Sírio', 0), -- 5
@@ -231,9 +345,9 @@ INSERT INTO grupo_armado (nome, soma_baixas) VALUES
 ('Coalizão Saudita', 0), -- 8
 ('Houthis', 0), -- 9
 ('Al-Shabaab', 0), -- 10
-('Forças do Governo Líbio', 0), -- 11
-('Exército Francês', 0), -- 12
-('Forças Armadas Argentinas', 0), -- 13
+('Governo de Acordo Nacional', 0), -- 11 (Líbia)
+('Forças Armadas da França', 0), -- 12
+('Forças Armadas da Argentina', 0), -- 13
 ('Forças Armadas Britânicas', 0), -- 14
 ('Exército Indiano', 0), -- 15
 ('Exército Paquistanês', 0), -- 16
@@ -248,40 +362,98 @@ INSERT INTO grupo_armado (nome, soma_baixas) VALUES
 ('Milícias Venezuelanas', 0), -- 25
 ('Frente Nacional de Libertação Síria', 0), -- 26
 ('Talibã Afegão', 0), -- 27
-('Exército de Libertação Popular', 0); -- 28 (China)
+('Exército de Libertação Popular', 0), -- 28 (China)
+('Exército Nacional Líbio', 0), -- 29 (Líbia)
+('Forças Armadas do Sudão do Sul', 0), -- 30 (Sudão do Sul)
+('Forças Armadas do Mali', 0), -- 31 (Mali)
+('Forças Armadas da Somália', 0), -- 32 (Somália)
+('Forças Armadas da Somália', 0), -- 32
+('Forças Armadas do Mali', 0), -- 31
+('Forças Armadas do Sudão do Sul', 0), -- 30 (Referente ao SPLA na Guerra Civil Sudanesa inicial)
+('Frente de Libertação do Povo Tigray', 0), -- 33
+('Movimento de Libertação do Congo (MLC)', 0), -- 34
+('Boko Haram', 0), -- 35
+('Oposição Venezuelana', 0), -- 36 (Representa um lado no conflito, mesmo que não seja um grupo "armado" tradicional)
+('Exército de Libertação do Sudão (SLA)', 0), -- 37
+('Forças Armadas do Azerbaijão', 0), -- 38
+('Forças Armadas da Armênia', 0), -- 39
+('Exército Nacional das Filipinas', 0), -- 40
+('Frente Moro de Libertação Islâmica (MILF)', 0), -- 41
+('Exército de Salvação Arakan Rohingya (ARSA)', 0), -- 42
+('Forças Armadas de Mianmar (Tatmadaw)', 0); -- 43
 
 -- ========================================
 -- POPULANDO PARTICIPACAO_ENTRADA
 -- ========================================
 INSERT INTO participacao_entrada (codigo_conflito, codigo_grupo, data_incorporacao) VALUES
--- Seus dados
-(1, 1, '1991-01-17'), (1, 2, '1990-08-02'), (2, 3, '1948-05-15'), (2, 4, '1948-05-15'), (3, 5, '2011-03-15'), (4, 1, '2003-03-20'), (4, 2, '2003-03-20'), (5, 1, '2001-10-07'), (6, 6, '2014-02-20'), (6, 7, '2014-02-20'), (7, 8, '2015-03-26'), (7, 9, '2014-09-21'), (8, 10, '2006-12-28'), (9, 11, '2011-02-17'), (10, 12, '2013-01-11'), (11, 12, '1982-04-02'), (11, 13, '1982-04-02'), (12, 15, '1947-10-22'), (12, 16, '1947-10-22'), (13, 17, '1983-02-26'), (14, 18, '2020-11-04'), (15, 19, '1996-08-02'), (16, 20, '2009-07-26'), (17, 21, '1980-09-22'), (17, 2, '1980-09-22'), (18, 22, '1950-06-25'), (18, 23, '1950-06-25'), (19, 1, '1964-08-02'), (19, 24, '1964-08-02'), (20, 25, '2019-01-23'),
--- Novos dados para min 2 grupos por conflito e mais dados para top grupos
-(3, 26, '2012-05-01'), -- Síria - Frente Nacional de Libertação Síria
-(5, 27, '2002-01-01'), -- Afeganistão - Talibã
-(21, 17, '2003-02-28'), -- Crise Darfur - Forças Governamentais Sudanesas
-(21, 10, '2003-03-01'), -- Crise Darfur - Al-Shabaab (proxy for JEM/SLA)
-(22, 12, '1990-09-01'), -- Nagorno-Karabakh - Exército Francês (proxy for Armenian forces)
-(22, 2, '1990-09-01'), -- Nagorno-Karabakh - Forças Armadas Iraquianas (proxy for Azerbaijani forces)
-(23, 18, '2020-11-04'), -- Tigray - Exército Etíope
-(23, 10, '2020-11-05'), -- Tigray - Al-Shabaab (proxy for TPLF)
-(24, 5, '2016-01-01'), -- Síria Idlib - Exército Árabe Sírio
-(24, 26, '2016-01-05'), -- Síria Idlib - Frente Nacional de Libertação Síria
-(25, 15, '1970-01-01'), -- Mindanao - Exército Indiano (proxy for Philippine Army)
-(25, 4, '1970-01-05'), -- Mindanao - Autoridade Nacional Palestina (proxy for MILF/ASG)
-(26, 16, '2017-08-25'), -- Rohingya - Exército Paquistanês (proxy for Myanmar Army)
-(26, 15, '2017-08-26'), -- Rohingya - Exército Indiano (proxy for ARSA)
-(27, 6, '2022-02-24'), -- Ucrânia Oriental - Exército Russo
-(27, 7, '2022-02-24'); -- Ucrânia Oriental - Forças Armadas Ucranianas
+(1, 1, '1991-01-17'), -- Guerra do Golfo: Forças Armadas dos Estados Unidos
+(1, 2, '1990-08-02'), -- Guerra do Golfo: Forças Armadas do Iraque
+(2, 3, '1948-05-15'), -- Conflito Israel-Palestina: Forças de Defesa de Israel
+(2, 4, '1948-05-15'), -- Conflito Israel-Palestina: Autoridade Nacional Palestina (como representante palestino geral, embora o Hamas seja mais proeminente hoje)
+(3, 5, '2011-03-15'), -- Guerra Civil Síria: Exército Árabe Sírio
+(3, 26, '2012-05-01'), -- Guerra Civil Síria: Frente Nacional de Libertação Síria (representando grupos rebeldes)
+(4, 1, '2003-03-20'), -- Invasão do Iraque: Forças Armadas dos Estados Unidos
+(4, 2, '2003-03-20'), -- Invasão do Iraque: Forças Armadas do Iraque
+(5, 1, '2001-10-07'), -- Guerra do Afeganistão: Forças Armadas dos Estados Unidos
+(5, 27, '2002-01-01'), -- Guerra do Afeganistão: Talibã Afegão
+(6, 6, '2014-02-20'), -- Conflito Russo-Ucraniano: Exército Russo
+(6, 7, '2014-02-20'), -- Conflito Russo-Ucraniano: Forças Armadas Ucranianas
+(7, 8, '2015-03-26'), -- Guerra Civil do Iêmen: Coalizão Saudita
+(7, 9, '2014-09-21'), -- Guerra Civil do Iêmen: Houthis
+(8, 10, '2006-12-28'), -- Conflito na Somália: Al-Shabaab
+(8, 32, '2006-12-28'), -- Conflito na Somália: Forças Armadas da Somália (adicionado como ID 32 em grupo_armado)
+(9, 11, '2011-02-17'), -- Guerra Civil Líbia: Governo de Acordo Nacional
+(9, 29, '2011-02-17'), -- Guerra Civil Líbia: Exército Nacional Líbio
+(10, 12, '2013-01-11'), -- Conflito no Mali: Forças Armadas da França
+(10, 31, '2013-01-11'), -- Conflito no Mali: Forças Armadas do Mali (adicionado como ID 31 em grupo_armado)
+(11, 14, '1982-04-02'), -- Guerra das Malvinas: Forças Armadas Britânicas
+(11, 13, '1982-04-02'), -- Guerra das Malvinas: Forças Armadas da Argentina
+(12, 15, '1947-10-22'), -- Conflito Caxemira: Exército Indiano
+(12, 16, '1947-10-22'), -- Conflito Caxemira: Exército Paquistanês
+(13, 17, '1983-02-26'), -- Guerra Civil Sudanesa: Forças Governamentais Sudanesas
+(13, 30, '1983-02-26'), -- Guerra Civil Sudanesa: Forças Armadas do Sudão do Sul (adicionado como ID 30 em grupo_armado - SPLA na época)
+(14, 18, '2020-11-04'), -- Conflito Etíope: Exército Etíope
+(14, 33, '2020-11-04'), -- Conflito Etíope: Frente de Libertação do Povo Tigray (TPLF) (adicionado como ID 33 em grupo_armado)
+(15, 19, '1996-08-02'), -- Guerra Civil Congolesa: Forças Armadas Congolesas
+(15, 34, '1996-08-02'), -- Guerra Civil Congolesa: Movimento de Libertação do Congo (MLC) (adicionado como ID 34 em grupo_armado, um dos principais grupos rebeldes)
+(16, 20, '2009-07-26'), -- Conflito Nigeriano: Exército Nigeriano
+(16, 35, '2009-07-26'), -- Conflito Nigeriano: Boko Haram (adicionado como ID 35 em grupo_armado)
+(17, 21, '1980-09-22'), -- Guerra Irã-Iraque: Guarda Revolucionária Iraniana
+(17, 2, '1980-09-22'), -- Guerra Irã-Iraque: Forças Armadas do Iraque
+(18, 22, '1950-06-25'), -- Conflito das Coreias: Exército Norte-Coreano
+(18, 23, '1950-06-25'), -- Conflito das Coreias: Exército Sul-Coreano
+(19, 1, '1964-08-02'), -- Guerra do Vietnã: Forças Armadas dos Estados Unidos
+(19, 24, '1964-08-02'), -- Guerra do Vietnã: Forças Vietnamitas (referindo-se ao Vietnã do Norte e Viet Cong)
+(20, 25, '2019-01-23'), -- Conflito na Venezuela: Milícias Venezuelanas (pró-governo)
+(20, 36, '2019-01-23'), -- Conflito na Venezuela: Oposição Venezuelana (considerando grupos de protesto e oposição organizada, embora não sejam "armados" no mesmo sentido, representam um lado no "conflito")
+(21, 17, '2003-02-28'), -- Crise de Darfur: Forças Governamentais Sudanesas
+(21, 37, '2003-03-01'), -- Crise de Darfur: Exército de Libertação do Sudão (SLA) (adicionado como ID 37 em grupo_armado)
+(22, 38, '1990-09-01'), -- Conflito em Nagorno-Karabakh: Forças Armadas do Azerbaijão (adicionado como ID 38 em grupo_armado)
+(22, 39, '1990-09-01'), -- Conflito em Nagorno-Karabakh: Forças Armadas da Armênia (adicionado como ID 39 em grupo_armado)
+(23, 18, '2020-11-04'), -- Guerra do Tigray: Exército Etíope
+(23, 33, '2020-11-05'), -- Guerra do Tigray: Frente de Libertação do Povo Tigray (TPLF)
+(24, 5, '2016-01-01'), -- Guerra da Síria - Idlib: Exército Árabe Sírio
+(24, 26, '2016-01-05'), -- Guerra da Síria - Idlib: Frente Nacional de Libertação Síria (ou grupos rebeldes associados)
+(25, 40, '1970-01-01'), -- Conflito em Mindanao: Exército Nacional das Filipinas (adicionado como ID 40 em grupo_armado)
+(25, 41, '1970-01-05'), -- Conflito em Mindanao: Frente Moro de Libertação Islâmica (MILF) (adicionado como ID 41 em grupo_armado)
+(26, 42, '2017-08-25'), -- Crise Rohingya: Exército de Salvação Arakan Rohingya (ARSA) (adicionado como ID 42 em grupo_armado)
+(26, 43, '2017-08-26'), -- Crise Rohingya: Forças Armadas de Mianmar (Tatmadaw) (adicionado como ID 43 em grupo_armado)
+(27, 6, '2022-02-24'), -- Conflito na Ucrânia Oriental: Exército Russo
+(27, 7, '2022-02-24'); -- Conflito na Ucrânia Oriental: Forças Armadas Ucranianas
 
 
 -- ========================================
 -- POPULANDO PARTICIPACAO_SAIDA
 -- ========================================
 INSERT INTO participacao_saida (codigo_conflito, codigo_grupo, data_saida) VALUES
--- Seus dados
-(1, 1, '1991-02-28'), (4, 1, '2011-12-18'), (5, 1, '2021-08-30'), (11, 12, '1982-06-14'), (11, 13, '1982-06-14'), (17, 21, '1988-08-20'), (17, 2, '1988-08-20'), (19, 1, '1975-04-30'),
--- Novos dados
+(1, 1, '1991-02-28'),
+(4, 1, '2011-12-18'),
+(5, 1, '2021-08-30'),
+(11, 12, '1982-06-14'),
+(11, 13, '1982-06-14'),
+(17, 21, '1988-08-20'),
+(17, 2, '1988-08-20'),
+(19, 1, '1975-04-30'),
 (22, 12, '1994-05-12'),
 (24, 26, '2020-03-01');
 
@@ -292,7 +464,7 @@ INSERT INTO participacao_saida (codigo_conflito, codigo_grupo, data_saida) VALUE
 -- E mais dados para top grupos por armas fornecidas.
 -- ========================================
 INSERT INTO divisao (codigo_grupo, numero_divisao, nr_avioes, nr_tanques, nr_barcos, nr_membros, nr_baixas) VALUES
--- Seus dados
+
 (1, 1, 120, 150, 25, 15000, 8500),
 (1, 2, 85, 200, 15, 18000, 9200),
 (1, 3, 95, 180, 20, 16500, 7300),
@@ -367,7 +539,7 @@ WHERE codigo IN (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,
 -- POPULANDO LIDER
 -- ========================================
 INSERT INTO lider (codigo_grupo, nome_lider, apoios) VALUES
--- Seus dados
+
 (1, 'General Norman Schwarzkopf', 'Congresso dos EUA, NATO'),
 (2, 'General Qasim Suleimani', 'Governo Iraquiano, Milícias Xiitas'),
 (3, 'General Benny Gantz', 'Knesset, IDF'),
@@ -559,7 +731,7 @@ INSERT INTO historico_venda_armas (codigo_traficante, modelo_arma, codigo_grupo_
 (9, 'Mina Terrestre PMN-2', 20, 300),
 (8, 'Drone Shahed-136', 7, 10);
 
-- ========================================
+-- ========================================
 -- POPULANDO DIALOGA
 -- IMPORTANTE: Apenas tuplas para líderes que existem na tabela 'lider'
 --             (com seus respectivos 'codigo_grupo') foram incluídas para evitar erros de FK.
