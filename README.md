@@ -41,7 +41,7 @@ docker compose up -d
 
 ## 👥 Equipe de Desenvolvimento
 
-- **[Ezequiel]()**
+- **[Ezequiel](https://github.com/CakeOwO)**
 - **[André Vieira Rocha](https://github.com/AndreRochaV)**
 - **[Gabriel Monteiro de Souza](https://github.com/SirMonteiro)**
 - **[Otavio](https://github.com/bambans)**
