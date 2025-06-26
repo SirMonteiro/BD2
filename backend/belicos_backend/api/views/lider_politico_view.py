@@ -26,8 +26,8 @@ class LiderPoliticoView(ViewSet):
         Nota: Esta tabela possui chave primária composta. Esta busca
         simplificada considera apenas o nome do líder.
         """
-        query = "SELECT * FROM lider WHERE nome_lider = %s"
-        data = RawSQLHelper.execute_query(query, [pk])
+        query = "SELECT * FROM lider WHERE nome_lider LIKE %s"
+        data = RawSQLHelper.execute_query(query, [f"%{pk}%"])
         return Response(data)
 
     # POST /api/lider-politico/
