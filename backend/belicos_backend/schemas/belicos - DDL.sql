@@ -213,7 +213,8 @@ ALTER TABLE "historico_venda_armas" ADD FOREIGN KEY ("codigo_grupo_armado") REFE
 
 ALTER TABLE "dialoga" ADD FOREIGN KEY ("codigoOrg") REFERENCES "organizacao" ("codigo");
 
-ALTER TABLE "grupo_armado" ADD FOREIGN KEY ("soma_baixas") REFERENCES "grupo_armado" ("codigo");
+--REMOVER ESTA LINHA
+--ALTER TABLE "grupo_armado" ADD FOREIGN KEY ("soma_baixas") REFERENCES "grupo_armado" ("codigo");
 
 ALTER TABLE "chefe_militar" ADD FOREIGN KEY ("nome_lider", "codigo_lider") REFERENCES "lider" ("nome_lider", "codigo_grupo");
 
