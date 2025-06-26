@@ -402,51 +402,51 @@ INSERT INTO lider (codigo_grupo, nome_lider, apoios) VALUES
 -- POPULANDO CHEFE_MILITAR
 -- Usando o campo 'codigo' para a PK serial
 -- ========================================
-INSERT INTO chefe_militar (codigo_chefe, faixa_hierarquica, nome_lider, codigo_lider, numero_divisao, grupo_divisao) VALUES
+INSERT INTO chefe_militar (faixa_hierarquica, nome_lider, codigo_lider, numero_divisao, grupo_divisao) VALUES
 -- Divisão 1 do Grupo 1 (3 chefes)
-(1, 'General', 'General Norman Schwarzkopf', 1, 1, 1),
-(2, 'Coronel', 'General Norman Schwarzkopf', 1, 1, 1), -- Assumindo que o nome do líder pode ser o mesmo, mas o chefe militar é diferente
-(3, 'Major-General', 'General Norman Schwarzkopf', 1, 1, 1),
+('General', 'General Norman Schwarzkopf', 1, 1, 1),
+('Coronel', 'General Norman Schwarzkopf', 1, 1, 1), -- Assumindo que o nome do líder pode ser o mesmo, mas o chefe militar é diferente
+('Major-General', 'General Norman Schwarzkopf', 1, 1, 1),
 -- Divisão 2 do Grupo 1 (2 chefes)
-(4, 'General', 'General Norman Schwarzkopf', 1, 2, 1),
-(5, 'Brigadeiro', 'General Norman Schwarzkopf', 1, 2, 1),
+('General', 'General Norman Schwarzkopf', 1, 2, 1),
+('Brigadeiro', 'General Norman Schwarzkopf', 1, 2, 1),
 -- Divisão 1 do Grupo 2 (3 chefes)
-(6, 'General', 'General Qasim Suleimani', 2, 1, 2),
-(7, 'Coronel', 'General Qasim Suleimani', 2, 1, 2),
-(8, 'Major', 'General Qasim Suleimani', 2, 1, 2),
+('General', 'General Qasim Suleimani', 2, 1, 2),
+('Coronel', 'General Qasim Suleimani', 2, 1, 2),
+('Major', 'General Qasim Suleimani', 2, 1, 2),
 -- Divisão 2 do Grupo 2 (1 chefe)
-(9, 'General', 'General Qasim Suleimani', 2, 2, 2),
+('General', 'General Qasim Suleimani', 2, 2, 2),
 -- Divisão 1 do Grupo 3 (3 chefes)
-(10, 'General', 'General Benny Gantz', 3, 1, 3),
-(11, 'Coronel', 'General Benny Gantz', 3, 1, 3),
-(12, 'Major-General', 'General Benny Gantz', 3, 1, 3),
+('General', 'General Benny Gantz', 3, 1, 3),
+('Coronel', 'General Benny Gantz', 3, 1, 3),
+('Major-General', 'General Benny Gantz', 3, 1, 3),
 -- Divisão 1 do Grupo 4 (2 chefes)
-(13, 'Líder', 'Yasser Arafat', 4, 1, 4),
-(14, 'Comandante', 'Yasser Arafat', 4, 1, 4),
+('Líder', 'Yasser Arafat', 4, 1, 4),
+('Comandante', 'Yasser Arafat', 4, 1, 4),
 -- Divisão 1 do Grupo 5 (3 chefes)
-(15, 'General', 'General Maher al-Assad', 5, 1, 5),
-(16, 'Coronel', 'General Maher al-Assad', 5, 1, 5),
-(17, 'Major', 'General Maher al-Assad', 5, 1, 5),
+('General', 'General Maher al-Assad', 5, 1, 5),
+('Coronel', 'General Maher al-Assad', 5, 1, 5),
+('Major', 'General Maher al-Assad', 5, 1, 5),
 -- Divisão 1 do Grupo 6 (2 chefes)
-(18, 'General', 'General Valery Gerasimov', 6, 1, 6),
-(19, 'Coronel', 'General Valery Gerasimov', 6, 1, 6),
+('General', 'General Valery Gerasimov', 6, 1, 6),
+('Coronel', 'General Valery Gerasimov', 6, 1, 6),
 -- Divisão 1 do Grupo 7 (3 chefes)
-(20, 'General', 'General Valerii Zaluzhnyi', 7, 1, 7),
-(21, 'Coronel', 'General Valerii Zaluzhnyi', 7, 1, 7),
-(22, 'Major', 'General Valerii Zaluzhnyi', 7, 1, 7),
+('General', 'General Valerii Zaluzhnyi', 7, 1, 7),
+('Coronel', 'General Valerii Zaluzhnyi', 7, 1, 7),
+('Major', 'General Valerii Zaluzhnyi', 7, 1, 7),
 -- Divisão 1 do Grupo 8 (1 chefe)
-(23, 'Príncipe', 'Príncipe Mohammed bin Salman', 8, 1, 8),
+('Príncipe', 'Príncipe Mohammed bin Salman', 8, 1, 8),
 -- Divisão 1 do Grupo 9 (2 chefes)
-(24, 'Líder', 'Abdul-Malik al-Houthi', 9, 1, 9),
-(25, 'Comandante', 'Abdul-Malik al-Houthi', 9, 1, 9),
+('Líder', 'Abdul-Malik al-Houthi', 9, 1, 9),
+('Comandante', 'Abdul-Malik al-Houthi', 9, 1, 9),
 -- Divisão 1 do Grupo 10 (3 chefes)
-(26, 'Emir', 'Ahmed Abdi Godane', 10, 1, 10),
-(27, 'Comandante', 'Ahmed Abdi Godane', 10, 1, 10),
-(28, 'Sheikh', 'Ahmed Abdi Godane', 10, 1, 10),
+('Emir', 'Ahmed Abdi Godane', 10, 1, 10),
+('Comandante', 'Ahmed Abdi Godane', 10, 1, 10),
+('Sheikh', 'Ahmed Abdi Godane', 10, 1, 10),
 -- Adicionando mais chefes para testar o limite de 3 por divisão
-(29, 'General', 'Abu Mohammed al-Julani', 26, 1, 26),
-(30, 'Coronel', 'Abu Mohammed al-Julani', 26, 1, 26),
-(31, 'Major', 'Abu Mohammed al-Julani', 26, 1, 26);
+('General', 'Abu Mohammed al-Julani', 26, 1, 26),
+('Coronel', 'Abu Mohammed al-Julani', 26, 1, 26),
+('Major', 'Abu Mohammed al-Julani', 26, 1, 26);
 -- Tentativa de inserir um 4º chefe na divisão (1,1) do grupo 1 (Divisão com codigo=1)
 -- INSERT INTO chefe_militar (codigo, faixa_hierarquica, nome_lider, codigo_lider, numero_divisao, grupo_divisao) VALUES (32, 'Tenente', 'General Norman Schwarzkopf', 1, 1, 1);
 -- Isso deve falhar se houver um trigger ou regra de negócio implementada que limita a 3 chefes por divisão.
@@ -559,7 +559,7 @@ INSERT INTO historico_venda_armas (codigo_traficante, modelo_arma, codigo_grupo_
 (9, 'Mina Terrestre PMN-2', 20, 300),
 (8, 'Drone Shahed-136', 7, 10);
 
-- ========================================
+-- ========================================
 -- POPULANDO DIALOGA
 -- IMPORTANTE: Apenas tuplas para líderes que existem na tabela 'lider'
 --             (com seus respectivos 'codigo_grupo') foram incluídas para evitar erros de FK.
