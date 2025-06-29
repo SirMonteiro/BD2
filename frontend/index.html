@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>BelicusDB</title>
         <link
             rel="stylesheet"
@@ -19,159 +20,299 @@
     </head>
     <body>
         <div class="container-fluid py-4">
-            <h1 class="mb-4 text-center">BelicusDB</h1>
-
-            <!-- Menu de Navegação -->
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="list-group">
-                        <a href="#estatisticas" class="list-group-item list-group-item-action" data-bs-toggle="list">Estatísticas</a>
-                        <a href="#cadastro" class="list-group-item list-group-item-action" data-bs-toggle="list">Cadastrar Dados</a>
-                        <a href="#listagens" class="list-group-item list-group-item-action" data-bs-toggle="list">Listagens</a>
-                        <a href="#cadastroGrupos" class="list-group-item list-group-item-action" data-bs-toggle="list">Cadastrar Grupos</a>
-                        <a href="#cadastroDivisoes" class="list-group-item list-group-item-action" data-bs-toggle="list">Cadastrar Divisões</a>
-                        <a href="#cadastroLiderancas" class="list-group-item list-group-item-action" data-bs-toggle="list">Cadastrar Lideranças</a>
-                        <a href="#cadastroArmas" class="list-group-item list-group-item-action" data-bs-toggle="list">Cadastrar Armas</a>
-                    </div>
+            <header class="row d-flex justify-content-between align-items-center mb-4">
+                <div class="col-md-2">
+                    <h1 class="text-primary">BelicusDB</h1>
                 </div>
-
-                <!-- Conteúdo Principal com Abas -->
-                <div class="col-md-9">
-                    <div class="tab-content" id="nav-tabContent">
-                        <!-- Aba Estatísticas -->
-                        <div class="tab-pane fade show active" id="estatisticas" role="tabpanel">
-                            <h2>Estatísticas</h2>
-                            <div class="mb-4">
-                                <h4>Gráfico de Tipo de Conflito</h4>
-                                <canvas id="graficoTipoConflito" height="100"></canvas>
-                            </div>
-                            <div class="mb-4">
-                                <h4>Top 5 Organizações por Mediações</h4>
-                                <canvas id="graficoTopOrganizacoes" height="100"></canvas>
-                            </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-4">
+                    <nav>
+                        <ul class="nav nav-tabs" id="mainTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="cadastro-tab" data-bs-toggle="tab" data-bs-target="#cadastro" type="button" role="tab">Cadastros</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="estatisticas-tab" data-bs-toggle="tab" data-bs-target="#estatisticas" type="button" role="tab">Estatísticas</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="listagens-tab" data-bs-toggle="tab" data-bs-target="#listagens" type="button" role="tab">Relatórios</button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <main class="tab-content" id="mainTabContent">
+                <div class="tab-pane  show active" id="cadastro" role="tabpanel" aria-labelledby="cadastro-tab">
+                    <div class="row mb-4">
+                        <div class="col-md-2">
+                            <h2 class="text-secondary">Cadastros</h2>
                         </div>
-
-                        <!-- Aba Cadastro -->
-                        <div class="tab-pane fade" id="cadastro" role="tabpanel">
-                            <h2>Cadastrar Dados</h2>
-                            <form id="conflitoForm" class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="nome" class="form-label">Nome do Conflito</label>
-                                    <input type="text" class="form-control" id="nome" required />
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="tipo" class="form-label">Tipo de Conflito</label>
-                                    <select class="form-select" id="tipo" required>
-                                        <option value="">Selecione</option>
-                                        <option value="Territorial">Territorial</option>
-                                        <option value="Religioso">Religioso</option>
-                                        <option value="Economicos">Econômico</option>
-                                        <option value="Raciais">Racial</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="nr_mortos" class="form-label">Número de Mortos</label>
-                                    <input type="number" class="form-control" id="nr_mortos" required />
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="nr_feridos" class="form-label">Número de Feridos</label>
-                                    <input type="number" class="form-control" id="nr_feridos" required />
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Aba Listagens -->
-                        <div class="tab-pane fade" id="listagens" role="tabpanel">
-                            <h2>Listagens</h2>
-                            <div id="tabelasListagens" class="table-responsive">
-                                <!-- Tabelas JS -->
-                            </div>
-                        </div>
-
-                        <!-- Aba Cadastro Grupos -->
-                        <div class="tab-pane fade" id="cadastroGrupos" role="tabpanel">
-                            <h2>Cadastrar Grupos</h2>
-                            <form id="grupoForm" class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="nomeGrupo" class="form-label">Nome do Grupo</label>
-                                    <input type="text" class="form-control" id="nomeGrupo" required />
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="descricaoGrupo" class="form-label">Descrição</label>
-                                    <input type="text" class="form-control" id="descricaoGrupo" required />
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Aba Cadastro Divisões -->
-                        <div class="tab-pane fade" id="cadastroDivisoes" role="tabpanel">
-                            <h2>Cadastrar Divisões</h2>
-                            <form id="divisaoForm" class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="nomeDivisao" class="form-label">Nome da Divisão</label>
-                                    <input type="text" class="form-control" id="nomeDivisao" required />
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="grupoDivisao" class="form-label">Grupo Associado</label>
-                                    <input type="text" class="form-control" id="grupoDivisao" required />
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Aba Cadastro Lideranças -->
-                        <div class="tab-pane fade" id="cadastroLiderancas" role="tabpanel">
-                            <h2>Cadastrar Lideranças</h2>
-                            <form id="liderancaForm" class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="nomeLider" class="form-label">Nome do Líder</label>
-                                    <input type="text" class="form-control" id="nomeLider" required />
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="tipoLider" class="form-label">Tipo de Liderança</label>
-                                    <select class="form-select" id="tipoLider" required>
-                                        <option value="">Selecione</option>
-                                        <option value="Militar">Militar</option>
-                                        <option value="Política">Política</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Aba Cadastro Armas -->
-                        <div class="tab-pane fade" id="cadastroArmas" role="tabpanel">
-                            <h2>Cadastrar Armas</h2>
-                            <form id="armaForm" class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="nomeArma" class="form-label">Nome da Arma</label>
-                                    <input type="text" class="form-control" id="nomeArma" required />
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="tipoArma" class="form-label">Tipo de Arma</label>
-                                    <input type="text" class="form-control" id="tipoArma" required />
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                </div>
-                            </form>
+                        <div class="col-md-6"></div>
+                        <div class="col-md-4">
+                            <nav>
+                                <ul class="nav nav-tabs" id="cadTabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="grupo-militar-tab" data-bs-toggle="tab" data-bs-target="#grupo-militar" type="button" role="tab" aria-controls="grupo-militar" aria-selected="true">Grupo Militar</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="divisao-tab" data-bs-toggle="tab" data-bs-target="#divisao" type="button" role="tab" aria-controls="divisao" aria-selected="false">Divisão</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="conflito-tab" data-bs-toggle="tab" data-bs-target="#conflito" type="button" role="tab" aria-controls="conflito" aria-selected="false">Conflito</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="lider-tab" data-bs-toggle="tab" data-bs-target="#lider" type="button" role="tab" aria-controls="lider" aria-selected="false">Lider Político</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="chefe-tab" data-bs-toggle="tab" data-bs-target="#chefe" type="button" role="tab" aria-controls="chefe" aria-selected="false">Chefe Militar</button>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
+                    <div class="tab-content" id="cadTabsContent">
+                        <div class="tab-pane  show active" id="grupo-militar" role="tabpanel" aria-labelledby="grupo-militar-tab">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h3>Cadastrar Grupo Militar</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="grupoForm">
+                                                <div class="mb-3">
+                                                    <label for="nomeGrupo" class="form-label">Nome do Grupo</label>
+                                                    <input type="text" class="form-control" id="nomeGrupo" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="somaBaixas" class="form-label">Soma de Baixas</label>
+                                                    <input type="number" class="form-control" id="somaBaixas" min="0" value="0">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Cadastrar Grupo</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane " id="divisao" role="tabpanel" aria-labelledby="divisao-tab">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h3>Cadastrar Divisão</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="divisaoForm">
+                                                <div class="mb-3">
+                                                    <label for="grupoSelect" class="form-label">Grupo Militar</label>
+                                                    <select class="form-control" id="grupoSelect" required>
+                                                        <option value="">Selecione um grupo...</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nrAvioes" class="form-label">Número de Aviões</label>
+                                                    <input type="number" class="form-control" id="nrAvioes" min="0" value="0">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nrTanques" class="form-label">Número de Tanques</label>
+                                                    <input type="number" class="form-control" id="nrTanques" min="0" value="0">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nrBarcos" class="form-label">Número de Barcos</label>
+                                                    <input type="number" class="form-control" id="nrBarcos" min="0" value="0">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nrMembros" class="form-label">Número de Membros</label>
+                                                    <input type="number" class="form-control" id="nrMembros" min="0" value="0">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nrBaixas" class="form-label">Número de Baixas</label>
+                                                    <input type="number" class="form-control" id="nrBaixas" min="0" value="0">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Cadastrar Divisão</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane " id="conflito" role="tabpanel" aria-labelledby="conflito-tab">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h3>Cadastrar Conflito</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="conflitoForm">
+                                                <div class="mb-3">
+                                                    <label for="nomeConflito" class="form-label">Nome do Conflito</label>
+                                                    <input type="text" class="form-control" id="nomeConflito" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="tipoConflito" class="form-label">Tipo de Conflito</label>
+                                                    <select class="form-control" id="tipoConflito" required>
+                                                        <option value="">Selecione...</option>
+                                                        <option value="religioso">Religioso</option>
+                                                        <option value="territorial">Territorial</option>
+                                                        <option value="civil">Civil</option>
+                                                        <option value="internacional">Internacional</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nrMortos" class="form-label">Número de Mortos</label>
+                                                    <input type="number" class="form-control" id="nrMortos" min="0" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nrFeridos" class="form-label">Número de Feridos</label>
+                                                    <input type="number" class="form-control" id="nrFeridos" min="0" required>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Cadastrar Conflito</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane " id="lider" role="tabpanel" aria-labelledby="lider-tab">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h3>Cadastrar Líder Político</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="liderPoliticoForm">
+                                                <div class="mb-3">
+                                                    <label for="grupoLiderSelect" class="form-label">Grupo Militar</label>
+                                                    <select class="form-control" id="grupoLiderSelect" required>
+                                                        <option value="">Selecione um grupo...</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nomeLiderPolitico" class="form-label">Nome do Líder</label>
+                                                    <input type="text" class="form-control" id="nomeLiderPolitico" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="apoiosLider" class="form-label">Apoios</label>
+                                                    <textarea class="form-control" id="apoiosLider" rows="3" placeholder="Descreva os apoios do líder"></textarea>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Cadastrar Líder</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane " id="chefe" role="tabpanel" aria-labelledby="chefe-tab">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h3>Cadastrar Chefe Militar</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="chefeMilitarForm">
+                                                <div class="mb-3">
+                                                    <label for="patente" class="form-label">Faixa Hierárquica/Patente</label>
+                                                    <input type="text" class="form-control" id="patente" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nomeLiderChefe" class="form-label">Nome do Líder</label>
+                                                    <input type="text" class="form-control" id="nomeLiderChefe" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="codigoLiderChefe" class="form-label">Código do Grupo do Líder</label>
+                                                    <select class="form-control" id="codigoLiderChefe" required>
+                                                        <option value="">Selecione um grupo...</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="numeroDivisao" class="form-label">Número da Divisão</label>
+                                                    <input type="number" class="form-control" id="numeroDivisao" min="1" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="grupoDivisao" class="form-label">Grupo da Divisão</label>
+                                                    <select class="form-control" id="grupoDivisao" required>
+                                                        <option value="">Selecione um grupo...</option>
+                                                    </select>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Cadastrar Chefe Militar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="tab-pane" id="estatisticas" role="tabpanel" aria-labelledby="estatisticas-tab">
+                    <h2 class="text-secondary">Estatísticas</h2>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Histograma por Tipo de Conflito</h3>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="graficoTipoConflito" width="400" height="200"></canvas>
+                            <button id="carregarGrafico" class="btn btn-primary mt-3">Carregar Gráfico</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="listagens" role="tabpanel" aria-labelledby="listagens-tab">
+                    <h2 class="text-secondary">Relatórios</h2>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="list-group mb-4">
+                                <button type="button" class="list-group-item list-group-item-action" data-report="traficantes-armas">
+                                    Traficantes com Armas Barrett M82 ou M200 Intervention
+                                </button>
+                                <button type="button" class="list-group-item list-group-item-action" data-report="top-conflitos-mortos">
+                                    Top 5 Conflitos com Mais Mortos
+                                </button>
+                                <button type="button" class="list-group-item list-group-item-action" data-report="top-organizacoes">
+                                    Top 5 Organizações com Mais Mediações
+                                </button>
+                                <button type="button" class="list-group-item list-group-item-action" data-report="top-grupos-armas">
+                                    Top 5 Grupos com Mais Armas
+                                </button>
+                                <button type="button" class="list-group-item list-group-item-action" data-report="pais-religiosos">
+                                    País com Mais Conflitos Religiosos
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div id="relatorioContainer" class="card d-none">
+                            <div class="card-header">
+                                <h4 id="relatorioTitle">Relatório</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped" id="relatorioTable">
+                                        <thead id="relatorioTableHead">
+                                        </thead>
+                                        <tbody id="relatorioTableBody">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </main>
         </div>
-
         <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
         <script type="module" src="js/main.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
