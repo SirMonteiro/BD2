@@ -221,3 +221,109 @@ ALTER TABLE "chefe_militar" ADD FOREIGN KEY ("nome_lider", "codigo_lider") REFER
 ALTER TABLE "chefe_militar" ADD FOREIGN KEY ("numero_divisao", "grupo_divisao") REFERENCES "divisao" ("numero_divisao", "codigo_grupo");
 
 ALTER TABLE "dialoga" ADD FOREIGN KEY ("nomeL", "codigoG") REFERENCES "lider" ("nome_lider", "codigo_grupo");
+
+-- ========================================
+-- FUNÇÕES E TRIGGERS PARA REGRAS DE NEGÓCIO
+-- ========================================
+
+-- Trigger 1: Manter a consistência das baixas totais em cada grupo armado
+-- Função para atualizar soma_baixas em grupo_armado
+CREATE OR REPLACE FUNCTION update_soma_baixas_grupo_armado()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Se a operação foi INSERT ou UPDATE na divisao
+    IF (TG_OP = 'INSERT' OR TG_OP = 'UPDATE') THEN
+        UPDATE grupo_armado
+        SET soma_baixas = (SELECT COALESCE(SUM(nr_baixas), 0) FROM divisao WHERE codigo_grupo = NEW.codigo_grupo)
+        WHERE codigo = NEW.codigo_grupo;
+    -- Se a operação foi DELETE na divisao
+    ELSIF (TG_OP = 'DELETE') THEN
+        UPDATE grupo_armado
+        SET soma_baixas = (SELECT COALESCE(SUM(nr_baixas), 0) FROM divisao WHERE codigo_grupo = OLD.codigo_grupo)
+        WHERE codigo = OLD.codigo_grupo;
+    END IF;
+    RETURN NULL; -- Retorna NULL para trigger AFTER
+END;
+$$ LANGUAGE plpgsql;
+
+-- Trigger que chama a função após INSERT, UPDATE ou DELETE em 'divisao'
+CREATE TRIGGER trg_update_soma_baixas
+AFTER INSERT OR UPDATE OF nr_baixas OR DELETE ON divisao
+FOR EACH ROW
+EXECUTE FUNCTION update_soma_baixas_grupo_armado();
+
+
+-- Trigger 2: Gerar e assegurar a sequencialidade do número de divisão dentro do grupo armado
+-- Função para definir o numero_divisao sequencialmente
+CREATE OR REPLACE FUNCTION set_sequential_numero_divisao()
+RETURNS TRIGGER AS $$
+DECLARE
+    next_numero INT;
+BEGIN
+    -- Verifica se o numero_divisao não foi fornecido (ou é NULL/0, indicando que deve ser gerado)
+    -- Ou se ele já é o valor padrão serial, garantindo que a lógica só se aplique na primeira vez
+    IF NEW.numero_divisao IS NULL OR NEW.numero_divisao = 0 THEN
+        SELECT COALESCE(MAX(numero_divisao), 0) + 1
+        INTO next_numero
+        FROM divisao
+        WHERE codigo_grupo = NEW.codigo_grupo;
+
+        NEW.numero_divisao := next_numero;
+    END IF;
+    RETURN NEW; -- Retorna NEW para trigger BEFORE
+END;
+$$ LANGUAGE plpgsql;
+
+-- Trigger que chama a função antes de INSERT em 'divisao'
+CREATE TRIGGER trg_set_sequential_divisao_nr
+BEFORE INSERT ON divisao
+FOR EACH ROW
+EXECUTE FUNCTION set_sequential_numero_divisao();
+
+
+-- Trigger 3: Limitar 3 chefes por divisão
+-- Função para verificar o número máximo de chefes por divisão
+CREATE OR REPLACE FUNCTION check_max_3_chefes()
+RETURNS TRIGGER AS $$
+DECLARE
+  total_chefes INT;
+BEGIN
+  SELECT COUNT(*) INTO total_chefes
+  FROM chefe_militar
+  WHERE grupo_divisao = NEW.grupo_divisao AND numero_divisao = NEW.numero_divisao;
+
+  -- Se já houver 3 chefes e estamos tentando inserir mais um
+  IF total_chefes >= 3 THEN
+    RAISE EXCEPTION 'Uma divisão não pode ter mais de 3 chefes militares.';
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Trigger que chama a função antes de INSERT em 'chefe_militar'
+CREATE TRIGGER trg_max_chefes_por_divisao
+BEFORE INSERT ON chefe_militar
+FOR EACH ROW EXECUTE FUNCTION check_max_3_chefes();
+
+CREATE OR REPLACE FUNCTION check_min_2_grupos_conflito()
+RETURNS TRIGGER AS $$
+DECLARE
+  conflito_id INT;
+  total INT;
+BEGIN
+  -- Para cada conflito, verifica se tem pelo menos 2 grupos
+  FOR conflito_id IN SELECT DISTINCT codigo_conflito FROM participacao_entrada LOOP
+    SELECT COUNT(*) INTO total FROM participacao_entrada WHERE codigo_conflito = conflito_id;
+    IF total < 2 THEN
+      RAISE EXCEPTION 'Conflito % possui menos de 2 grupos armados.', conflito_id;
+    END IF;
+  END LOOP;
+  RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_min_2_grupos_por_conflito
+AFTER INSERT ON participacao_entrada
+FOR EACH STATEMENT
+EXECUTE FUNCTION check_min_2_grupos_conflito();
