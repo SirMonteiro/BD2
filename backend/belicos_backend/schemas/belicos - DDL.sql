@@ -316,7 +316,7 @@ BEGIN
   FOR conflito_id IN SELECT DISTINCT codigo_conflito FROM participacao_entrada LOOP
     SELECT COUNT(*) INTO total FROM participacao_entrada WHERE codigo_conflito = conflito_id;
     IF total < 2 THEN
-      RAISE EXCEPTION 'Conflito % possui menos de 2 grupos armados.', conflito_id;
+      RAISE EXCEPTION 'Conflito %% possui menos de 2 grupos armados.', conflito_id;
     END IF;
   END LOOP;
   RETURN NULL;
