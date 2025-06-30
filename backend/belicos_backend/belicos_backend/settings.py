@@ -168,10 +168,10 @@ PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.Argon2PasswordHasher",
 ]
 
-MIGRATION_MODULES = {
-    'auth': None,
-    'contenttypes': None,
-}
+# MIGRATION_MODULES = {
+    # 'auth': None,
+    # 'contenttypes': None,
+# }
 
 AUTH_USER_MODEL = 'api.User'
 
