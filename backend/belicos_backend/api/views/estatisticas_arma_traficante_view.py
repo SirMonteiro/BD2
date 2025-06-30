@@ -21,7 +21,7 @@ class EstatisticasArmaTraficanteView(ViewSet):
             FROM historico_venda_armas h
             JOIN traficante t ON h.codigo_traficante = t.codigo
             JOIN grupo_armado ga ON h.codigo_grupo_armado = ga.codigo
-            WHERE h.modelo_arma IN ('Barret M82', 'M200 intervention');
+            WHERE h.modelo_arma IN ('Barret M82', 'M200 Intervention');
         """
         data = RawSQLHelper.execute_query(query)
         return Response(data)
