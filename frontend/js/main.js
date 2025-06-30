@@ -105,10 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
 
     // Chart functionality
-    const carregarGraficoBtn = document.getElementById('carregarGrafico');
-    if (carregarGraficoBtn) {
-        carregarGraficoBtn.addEventListener('click', async () => {
-            try {
+
+    const getGrafico = async () => {
+        try {
                 const res = await fetch(`${apiBase}/estatisticas/tipo-conflito/`);
                 if (res.ok) {
                     const data = await res.json();
@@ -120,7 +119,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Erro:', error);
                 alert('Erro de conexão. Verifique se o backend está rodando.');
             }
-        });
+    }
+
+    const carregarGraficoBtn = document.getElementById('carregarGrafico');
+    const estatisticasBtn = document.getElementById('estatisticas-tab');
+    if (carregarGraficoBtn || estatisticasBtn) {
+        carregarGraficoBtn.addEventListener('click', getGrafico);
+        estatisticasBtn.addEventListener('click', getGrafico);
     }
 
     function createChart(data) {
@@ -214,12 +219,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             case 'top-conflitos-mortos':
                 endpoint = 'estatisticas/top-conflitos-mortos';
-                headers = ['Nome do Conflito', 'Tipo', 'Número de Mortos', 'Número de Feridos'];
+                headers = ['Nome do Conflito', 'Número de Mortos'];
                 dataProcessor = (item) => [
                     item.nome || 'N/A',
-                    item.tipo_conf || 'N/A',
-                    item.nr_mortos || 0,
-                    item.nr_feridos || 0
+                    item.nr_mortos || 0
                 ];
                 break;
             
@@ -228,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers = ['Organização', 'Número de Mediações'];
                 dataProcessor = (item) => [
                     item.nome || 'N/A',
-                    item.total_mediacoes || 0
+                    item.numero_mediacoes || 0
                 ];
                 break;
             
@@ -245,8 +248,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 endpoint = 'estatisticas/pais-religiosos';
                 headers = ['País', 'Número de Conflitos Religiosos'];
                 dataProcessor = (item) => [
-                    item.pais || 'N/A',
-                    item.total_conflitos || 0
+                    item.nome || 'N/A',
+                    item.numero_conflitos_religiosos || 0
                 ];
                 break;
             
